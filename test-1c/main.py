@@ -102,7 +102,7 @@ def main(_):
         # Initialize the graph, and receive the queue coordinator and the training monitor
         coord, training_monitor = u.init(sess)
 
-        # saver.restore(sess, "/tmp/model.ckpt")
+        # saver.restore(sess, "/home/urops/andrewg/capsule-b/test-1c/saved/model.ckpt")
         # print("Model restored.")
 
         # Pretrain the network on the first part--classifying and splitting
@@ -188,7 +188,7 @@ def main(_):
                 training_monitor.prints()
 
                 # Save the model
-                save_path = saver.save(sess, "saved/model.ckpt")
+                save_path = saver.save(sess, "saved/model" + str(batch_num) + ".ckpt")
                 print("Model saved in path: %s" % save_path)
 
 
