@@ -1,7 +1,7 @@
 import sys
 
 sys.path.append("../")
-from mmnistlib.input_utils import load_mnist, load_mmnist4
+from mmnistlib.input_utils import load_mnist, load_mmnist, load_mmnist4, load_submmnist
 import numpy as np
 from random import randint
 import os
@@ -52,7 +52,7 @@ def _merge_many_MNIST(images, shift_pixels, rotation_range, use_shifting=True, r
     if use_shifting:
         canvas = np.zeros([36, 36])
 
-        for i in range(1, images.__len__()):
+        for i in range(0, images.__len__()):
             shift_pixels = randint(0, shift_pixels)
             print(shift_pixels)
             canvas[shift_pixels:shift_pixels + 28, shift_pixels:shift_pixels + 28] += images[i]
@@ -60,7 +60,7 @@ def _merge_many_MNIST(images, shift_pixels, rotation_range, use_shifting=True, r
     else:
         canvas = np.zeros([36, 36])
 
-        for i in range(1, images.__len__()):
+        for i in range(0, images.__len__()):
             canvas[:28, :28] += images[i]
             canvas = np.clip(canvas, 0, 1)
 
@@ -121,9 +121,9 @@ def _mnist_to_mmnist4(X, Y, num_samples, outpath, shift_pixels, use_shifting=Fal
         idx2 = random(0, num_digits - 1, ignore=[idx1])
         idx3 = random(0, num_digits - 1, ignore=[idx1, idx2])
         idx4 = random(0, num_digits - 1, ignore=[idx1, idx2, idx3])  # TODO: This is, uh, suboptimal, to say the least
-        print "debug:", Y[idx1], Y[idx2], Y[idx3], Y[idx4]
+        print "debug:", Y[idx1], Y[idx2], Y[idx3], Y[idx4] # FIXME: This doesn't verify that the four chosen images are all different
 
-        assert idx1 != idx2 != idx3 != idx4
+        assert Y[idx1] != Y[idx2] != Y[idx3] != Y[idx4]  # TODO: Fix
 
         # merge four images together
         Y_MMNIST.append([Y[idx1], Y[idx2], Y[idx3], Y[idx4]])
@@ -134,6 +134,67 @@ def _mnist_to_mmnist4(X, Y, num_samples, outpath, shift_pixels, use_shifting=Fal
             X[idx4, :, :, 0]
         ]
         merged_img = _merge_many_MNIST(images, shift_pixels, rotation_range, use_shifting=use_shifting, rotate=rotate)
+        X_MMNIST.append(merged_img)
+        print "next img", len(Y_MMNIST)
+
+    # save imgMMNIST and lblMMNIST
+    X_MMNIST = np.asarray(X_MMNIST)
+    Y_MMNIST = np.asarray(Y_MMNIST, dtype=np.int32)  # convert label to int32
+    # convert image to uint8
+    X_MMNIST = 255. * X_MMNIST
+    X_MMNIST = X_MMNIST.astype(np.uint8)
+    # save images and labels
+    np.ndarray.tofile(X_MMNIST, outpath + 'X')
+    np.ndarray.tofile(Y_MMNIST, outpath + 'Y')
+    return None
+
+
+def _mnist_to_mmnist2(X, Y, num_samples, outpath, shift_pixels, exclude_digit, use_shifting=False, rotation_range=None, rotate=False):
+    """
+
+    :param X:
+    :param Y:
+    :param num_samples:
+    :param outpath:
+    :param shift_pixels:
+    :param exclude_digit: A single digit to not include in the dataset.
+    :param use_shifting:
+    :param rotation_range:
+    :param rotate:
+    :return:
+    """
+    # Initial checks
+    assert X.shape[0] == Y.shape[0], "The number of images (" + X.shape[0] + ") and labels (" + Y.shape[0] + ") should be equal!"
+
+    if rotation_range is None:
+        rotation_range = [0, 0]
+
+    num_handwritten_digits = X.shape[0]
+
+
+    # Sample the MNIST images to create the MMNIST dataset
+    X_MMNIST = []
+    Y_MMNIST = []
+
+    while len(Y_MMNIST) < num_samples:
+        # Pick four random training images with different labels
+        idx1 = len(Y_MMNIST) % (num_handwritten_digits - 1)
+        idx2 = randint(0, num_handwritten_digits - 1)
+
+        while Y[idx1] == exclude_digit or Y[idx2] == exclude_digit or Y[idx1] == Y[idx2]:
+            idx1 = randint(0, num_handwritten_digits - 1)
+            idx2 = randint(0, num_handwritten_digits - 1)
+
+        print "debug:", Y[idx1], Y[idx2]
+
+        # merge four images together
+        Y_MMNIST.append([Y[idx1], Y[idx2]])
+        images = [
+            X[idx1, :, :, 0],
+            X[idx2, :, :, 0]
+        ]
+        merged_img = _merge_many_MNIST(images, shift_pixels, rotation_range, use_shifting=use_shifting, rotate=rotate)
+        # merged_img = _mergeMNIST(X[idx1, :, :, 0], X[idx2, :, :, 0], shift_pix=shift_pixels, rand_shift=use_shifting, rot_range=rotation_range, corot=True)
         X_MMNIST.append(merged_img)
         print "next img", len(Y_MMNIST)
 
@@ -187,6 +248,24 @@ def genMMNIST(mnistpath, outpath, samples_tr=200000, samples_te=10000):
     _MNIST2MMNIST(teX, teY, samples_te, os.path.join(outpath, 'teR60R'), shift_pix=8, rot_range=[30, 60], corot=False)
 
 
+def gensubmmnist(mnistpath, outpath, exclude_digit, samples_tr=200000, samples_te=10000):
+    trX, trY, teX, teY = load_mnist(mnistpath)
+    # generate training samples
+    _mnist_to_mmnist2(trX, trY, samples_tr, os.path.join(outpath, 'tr'), exclude_digit=exclude_digit, shift_pixels=8, use_shifting=True)
+    # generate test samples
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te0'), exclude_digit=exclude_digit, shift_pixels=0, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te1'), exclude_digit=exclude_digit, shift_pixels=1, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te2'), exclude_digit=exclude_digit, shift_pixels=2, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te3'), exclude_digit=exclude_digit, shift_pixels=3, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te4'), exclude_digit=exclude_digit, shift_pixels=4, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te5'), exclude_digit=exclude_digit, shift_pixels=5, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te6'), exclude_digit=exclude_digit, shift_pixels=6, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te7'), exclude_digit=exclude_digit, shift_pixels=7, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'te8'), exclude_digit=exclude_digit, shift_pixels=8, use_shifting=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'teR30R'), exclude_digit=exclude_digit, shift_pixels=8, rotation_range=[0, 30], use_shifting=True, rotate=True)
+    _mnist_to_mmnist2(teX, teY, samples_te, os.path.join(outpath, 'teR60R'), exclude_digit=exclude_digit, shift_pixels=8, rotation_range=[30, 60], use_shifting=True, rotate=True)
+
+
 def genMMNIST4(mnistpath, outpath, samples_tr=200000, samples_te=10000):
     trX, trY, teX, teY = load_mnist(mnistpath)
     # generate training samples
@@ -205,8 +284,8 @@ def genMMNIST4(mnistpath, outpath, samples_tr=200000, samples_te=10000):
     _mnist_to_mmnist4(teX, teY, samples_te, os.path.join(outpath, 'teR60R'), shift_pixels=8, rotation_range=[30, 60], use_shifting=True, rotate=True)
 
 
-genMMNIST4('/home/andrew/mnist', '/home/andrew/mmnist', samples_tr=2000, samples_te=10)
-mmnist = load_mmnist4('/home/andrew/mmnist', samples_tr=2000, samples_te=10)
+gensubmmnist('/home/andrew/mnist', '/home/andrew/submmnist6', exclude_digit=6, samples_tr=200000, samples_te=10000)
+mmnist = load_submmnist('/home/andrew/submmnist6', samples_tr=200000, samples_te=10000)
 
 # trX, trY, teX, teY = load_mnist("/home/maksym/Projects/datasets/mnist")
 # img = trX[randint(0,1000),:,:,0]
