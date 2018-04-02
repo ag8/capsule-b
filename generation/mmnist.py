@@ -118,12 +118,19 @@ def _mnist_to_mmnist4(X, Y, num_samples, outpath, shift_pixels, use_shifting=Fal
     while len(Y_MMNIST) < num_samples:
         # Pick four random training images with different labels
         idx1 = len(Y_MMNIST) % (num_digits - 1)
-        idx2 = random(0, num_digits - 1, ignore=[idx1])
-        idx3 = random(0, num_digits - 1, ignore=[idx1, idx2])
-        idx4 = random(0, num_digits - 1, ignore=[idx1, idx2, idx3])  # TODO: This is, uh, suboptimal, to say the least
-        print "debug:", Y[idx1], Y[idx2], Y[idx3], Y[idx4] # FIXME: This doesn't verify that the four chosen images are all different
+        idx2 = randint(0, num_digits - 1)
+        idx3 = randint(0, num_digits - 1)
+        idx4 = randint(0, num_digits - 1)
 
-        assert Y[idx1] != Y[idx2] != Y[idx3] != Y[idx4]  # TODO: Fix
+        while Y[idx1] == Y[idx2] or Y[idx1] == Y[idx3] or Y[idx1] == Y[idx4] or Y[idx2] == Y[idx3] or Y[idx2] == Y[idx4] or Y[idx3] == Y[idx4]:
+            idx1 = len(Y_MMNIST) % (num_digits - 1)
+            idx2 = randint(0, num_digits - 1)
+            idx3 = randint(0, num_digits - 1)
+            idx4 = randint(0, num_digits - 1)
+
+        print "debug:", Y[idx1], Y[idx2], Y[idx3], Y[idx4]
+
+        assert Y[idx1] != Y[idx2] != Y[idx3] != Y[idx4]
 
         # merge four images together
         Y_MMNIST.append([Y[idx1], Y[idx2], Y[idx3], Y[idx4]])
@@ -284,8 +291,8 @@ def genMMNIST4(mnistpath, outpath, samples_tr=200000, samples_te=10000):
     _mnist_to_mmnist4(teX, teY, samples_te, os.path.join(outpath, 'teR60R'), shift_pixels=8, rotation_range=[30, 60], use_shifting=True, rotate=True)
 
 
-gensubmmnist('/home/andrew/mnist', '/home/andrew/submmnist6', exclude_digit=6, samples_tr=200000, samples_te=10000)
-mmnist = load_submmnist('/home/andrew/submmnist6', samples_tr=200000, samples_te=10000)
+genMMNIST4('/home/andrew/mnist', '/home/andrew/mmnist4', samples_tr=2000, samples_te=100)
+mmnist = load_mmnist4('/home/andrew/mmnist4', samples_tr=2000, samples_te=100)
 
 # trX, trY, teX, teY = load_mnist("/home/maksym/Projects/datasets/mnist")
 # img = trX[randint(0,1000),:,:,0]
