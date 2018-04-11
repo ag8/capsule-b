@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="652b2b46-f4e9-4892-8baf-6d366d3981ee" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-1c/test_ld.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/capslayer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/capsnet.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/config.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/input_utils.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/main.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/test.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a-0.1/utils.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/capslayer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/capsnet.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/config.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/input_utils.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/main.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/test.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test-2a/utils.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/generation/mmnist.py" afterPath="$PROJECT_DIR$/generation/mmnist.py" />
-      <change beforePath="$PROJECT_DIR$/submmnist6.zip" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-1c/config.py" afterPath="$PROJECT_DIR$/test-1c/config.py" />
-      <change beforePath="$PROJECT_DIR$/test-1c/main.py" afterPath="$PROJECT_DIR$/test-1c/main.py" />
-      <change beforePath="$PROJECT_DIR$/test-1c/test.py" afterPath="$PROJECT_DIR$/test-1c/test.py" />
+      <change beforePath="$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py" afterPath="$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py" />
+      <change beforePath="$PROJECT_DIR$/test-1c-simple-benchmark/myutils.py" afterPath="$PROJECT_DIR$/test-1c-simple-benchmark/myutils.py" />
       <change beforePath="$PROJECT_DIR$/test-1c/utils.py" afterPath="$PROJECT_DIR$/test-1c/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mmnist.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mmnist.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generation/mmnist.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
@@ -54,8 +32,40 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test-1c/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="14" column="79" lean-forward="false" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
+            <state relative-caret-position="213">
+              <caret line="190" column="37" lean-forward="false" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mymain.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="169" column="17" lean-forward="false" selection-start-line="169" selection-start-column="17" selection-end-line="169" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myutils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/myutils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="113" column="38" lean-forward="false" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test-1c/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="229" column="0" lean-forward="true" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,16 +96,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-1c/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -137,18 +137,19 @@
         <option value="$PROJECT_DIR$/test-1c-benchmarks/mymain.py" />
         <option value="$PROJECT_DIR$/test-1c-simple-benchmark/input_utils.py" />
         <option value="$PROJECT_DIR$/test-1c-simple-benchmark/myconfig.py" />
-        <option value="$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py" />
         <option value="$PROJECT_DIR$/test-1c/README.md" />
         <option value="$PROJECT_DIR$/test-2a/README.md" />
         <option value="$PROJECT_DIR$/test-2a/main.py" />
         <option value="$PROJECT_DIR$/test-2a-0.1/utils.py" />
         <option value="$PROJECT_DIR$/test-2a-0.1/input_utils.py" />
-        <option value="$PROJECT_DIR$/test-1c/main.py" />
         <option value="$PROJECT_DIR$/test-1c/test.py" />
         <option value="$PROJECT_DIR$/test-1c/test_ld.py" />
-        <option value="$PROJECT_DIR$/test-1c/utils.py" />
         <option value="$PROJECT_DIR$/test-1c/config.py" />
         <option value="$PROJECT_DIR$/generation/mmnist.py" />
+        <option value="$PROJECT_DIR$/test-1c/main.py" />
+        <option value="$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py" />
+        <option value="$PROJECT_DIR$/test-1c/utils.py" />
+        <option value="$PROJECT_DIR$/test-1c-simple-benchmark/myutils.py" />
       </list>
     </option>
   </component>
@@ -356,16 +357,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test-2a-0.1/input_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="102" column="44" lean-forward="false" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-1a/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -565,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/myconfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -636,14 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-1c/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="79" lean-forward="false" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-2a-0.1/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -696,18 +672,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-1c/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generation/mmnist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="393" column="16" lean-forward="false" selection-start-line="393" selection-start-column="16" selection-end-line="393" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-1c/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="190" column="37" lean-forward="false" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-1c/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="229" column="0" lean-forward="true" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/myutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="113" column="38" lean-forward="false" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-1c-simple-benchmark/mymain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="169" column="17" lean-forward="false" selection-start-line="169" selection-start-column="17" selection-end-line="169" selection-end-column="17" />
           <folding />
         </state>
       </provider>

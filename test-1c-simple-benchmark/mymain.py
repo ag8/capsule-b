@@ -79,6 +79,9 @@ def main(_):
 
     saver = tf.train.Saver()
 
+    # For output data
+    f1 = open('out.csv', 'w+')
+
     sess = tf.Session()
     coord = tf.train.Coordinator()
     sess.run(tf.global_variables_initializer())
@@ -104,7 +107,7 @@ def main(_):
         print "step:", b_num, "\ttotal loss:", _total_err, "\tacc:", _acc,
         print "\texps:", "%.3f" % (cfg.batch_size / (time.time() - start))
 
-        if (b_num % 1000 == 9):
+        if (b_num % 100 == 9):
             _total_err,_acc = sess.run([tr0_err, tr0_acc])
             tm.add("tr0_total_err", _total_err)
             tm.add("tr0_acc",_acc)
@@ -164,7 +167,7 @@ def main(_):
             # tm.add("teR60_total_err", _total_err)
             # tm.add("teR60_acc", _acc)
 
-            tm.prints()
+            tm.prints(file=f1, step=b_num)
 
             save_path = saver.save(sess, "saved/model" + str(b_num) + ".ckpt")
             print("Model saved in path: %s" % save_path)
@@ -179,6 +182,8 @@ def main(_):
         #     #print "shape of the rec image:", _tr_rec_img.shape
         #     plt.imshow(np.reshape(_tr_rec_img[0, :],[36,36]), cmap='gray')
         #     plt.savefig('../imgs/' + str(b_num) + '_recstr.png')
+
+    f1.close()
 
 
 

@@ -228,7 +228,7 @@ class TrainingMonitor:
             if i in [10, 13, 14, 15, 16]:
                 test_accuracies.append(np.average(self._hist_records[key][-20:]))
 
-        file.write(step + "," + test_accuracies[0] + "," + test_accuracies[1] + "," + test_accuracies[2] + "," + test_accuracies[3] + "," + test_accuracies[4])
+        file.write(str(step) + "," + str(test_accuracies[0]) + "," + str(test_accuracies[1]) + "," + str(test_accuracies[2]) + "," + str(test_accuracies[3]) + "," + str(test_accuracies[4]) + "\n")
 
         print("==========================  *************** ========================================")
 

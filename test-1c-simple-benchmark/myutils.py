@@ -100,11 +100,23 @@ class TrainingMonitor:
             self._hist_records[name] = []
         self._hist_records[name].append(value)
         return np.average(self._hist_records[name][-num:])
-    def prints(self):
-        print "--------------------------  training monitor  --------------------------------------"
+    def prints(self, file, step):
+        print("--------------------------  training monitor  --------------------------------------")
+
+        i = 0
+
+        test_accuracies = []
+
         for key in self._hist_records:
-            print key, self._hist_records[key][-1],"ave:", np.average(self._hist_records[key][-20:])
-        print "==========================  *************** ========================================"
+            i = i + 1
+            print(key, self._hist_records[key][-1], "ave:", np.average(self._hist_records[key][-20:]))
+
+            if i in [6, 8, 10, 12, 14]:
+                test_accuracies.append(np.average(self._hist_records[key][-20:]))
+
+        file.write(str(step) + "," + str(test_accuracies[0]) + "," + str(test_accuracies[1]) + "," + str(test_accuracies[2]) + "," + str(test_accuracies[3]) + "," + str(test_accuracies[4]) + "\n")
+
+        print("==========================  *************** ========================================")
 
 
 
