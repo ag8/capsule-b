@@ -29,6 +29,7 @@ flags.DEFINE_float('keep_prob', 0.5, 'keep probability for dropout')
 ############################
 #home = os.path.dirname(os.path.abspath(__file__))
 flags.DEFINE_string('dataset_full', '/media/data4/affnist/mmnist', 'the path for the full MMNIST dataset')
+flags.DEFINE_string('dataset_ld', '/home/urops/andrewg/capsule-b/mmnistld', 'the path for the low-data MMNIST dataset')
 flags.DEFINE_string('dataset', '/home/urops/andrewg/capsule-b/submmnist6', 'the path for the subMMNIST dataset')
 # flags.DEFINE_string('dataset', '/mas/u/mkkr/andrewg/mmnist', 'the path for dataset')
 flags.DEFINE_boolean('is_training', True, 'train or predict phase')

@@ -23,7 +23,8 @@ def create_training_and_testing_batches(batch_size=cfg.batch_size, num_threads=c
     """
 
     # Load the multiMNIST dataset
-    mmnist = load_mmnist(cfg.dataset_full)
+    dataset = cfg.dataset_full
+    mmnist = load_mmnist(dataset)
 
     # Create a batch of training examples
     training_queue = tf.train.slice_input_producer([tf.convert_to_tensor(mmnist["trX"], tf.float32),
@@ -118,6 +119,57 @@ def create_training_and_testing_batches_for_sub_MMNIST(batch_size=cfg.batch_size
     return training_batch_X, training_batch_Y, test_batch
 
 
+def create_training_and_testing_batches_for_ld_MMNIST(batch_size=cfg.batch_size, num_threads=cfg.num_threads):
+    """
+    Load the multiMNIST dataset, and create X and Y training batches, and a testing batch.
+
+    :param batch_size: (Optional) the batch size
+    :param num_threads: (Optional) number of threads for preprocessing
+
+    :return: the training-X batch, the training-Y batch, and the test batch.
+    """
+
+    # Load the multiMNIST dataset
+    mmnist = load_submmnist(cfg.dataset_ld)
+
+    # Create a batch of training examples
+    training_queue = tf.train.slice_input_producer([tf.convert_to_tensor(mmnist["trX"], tf.float32),
+                                                    tf.one_hot(tf.convert_to_tensor(mmnist["trY"], tf.int32),
+                                                               depth=10)])
+
+    training_batch_X, training_batch_Y = tf.train.shuffle_batch(training_queue,
+                                                                num_threads=cfg.num_threads,
+                                                                batch_size=cfg.batch_size,
+                                                                capacity=cfg.batch_size * 64,
+                                                                min_after_dequeue=cfg.batch_size * 32,
+                                                                allow_smaller_final_batch=False)
+
+    test_queue = tf.train.slice_input_producer([tf.convert_to_tensor(mmnist["te0X"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["te0Y"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["te2X"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["te2Y"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["te4X"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["te4Y"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["te6X"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["te6Y"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["te8X"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["te8Y"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["teR30RX"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["teR30RY"], tf.int32), depth=10),
+                                                tf.convert_to_tensor(mmnist["teR60RX"], tf.float32),
+                                                tf.one_hot(tf.convert_to_tensor(mmnist["teR60RY"], tf.int32), depth=10)
+                                                ])
+
+    test_batch = tf.train.shuffle_batch(test_queue,
+                                        num_threads=cfg.num_threads,
+                                        batch_size=cfg.batch_size,
+                                        capacity=cfg.batch_size * 64,
+                                        min_after_dequeue=cfg.batch_size * 32,
+                                        allow_smaller_final_batch=False)
+
+    return training_batch_X, training_batch_Y, test_batch
+
+
 def init(sess):
     # Create a queue coordinator (necessary for correct input loading)
     coord = tf.train.Coordinator()
@@ -162,11 +214,21 @@ class TrainingMonitor:
 
         return np.average(self._hist_records[name][-history_length:])
 
-    def prints(self):
+    def prints(self, file, step):
         print("--------------------------  training monitor  --------------------------------------")
 
+        i = 0
+
+        test_accuracies = []
+
         for key in self._hist_records:
+            i = i + 1
             print(key, self._hist_records[key][-1], "ave:", np.average(self._hist_records[key][-20:]))
+
+            if i in [10, 13, 14, 15, 16]:
+                test_accuracies.append(np.average(self._hist_records[key][-20:]))
+
+        file.write(step + "," + test_accuracies[0] + "," + test_accuracies[1] + "," + test_accuracies[2] + "," + test_accuracies[3] + "," + test_accuracies[4])
 
         print("==========================  *************** ========================================")
 

@@ -97,6 +97,9 @@ def main(_):
     saver = tf.train.Saver()
 
 
+    # For output data
+    f1 = open('out.csv', 'w+')
+
 
     with tf.Session() as sess:
         # Initialize the graph, and receive the queue coordinator and the training monitor
@@ -106,7 +109,7 @@ def main(_):
         # print("Model restored.")
 
         # Pretrain the network on the first part--classifying and splitting
-        for i in range(1, 3):
+        for i in range(1, 1500):
             sys.stdout.write("Pretraining: " + str(i))
             # sys.stdout.write("Pretraining: (%d/1000)   \r" % (i))
             sys.stdout.flush()
@@ -140,7 +143,7 @@ def main(_):
                                     curr_memo_margin_loss,
                                     curr_memo_accuracy)
 
-            print(("Step: " + str(batch_num)).ljust(10)[:10]),
+            print(("Step: " + str(batch_num)).ljust(15)[:15]),
             print(("Total loss: " + str(curr_train_total_error)).ljust(25)[:25]),
             print(("Margin loss: " + str(curr_train_margin_error)).ljust(25)[:25]),
             print(("Reconstruct loss: " + str(curr_train_reconstruction_error)).ljust(25)[:25]),
@@ -185,11 +188,14 @@ def main(_):
                                             curr_accuracy_8px)
 
                 # Display the current training performance
-                training_monitor.prints()
+                training_monitor.prints(file=f1, step=batch_num)
+                f1.flush()
 
                 # Save the model
                 save_path = saver.save(sess, "saved/model" + str(batch_num) + ".ckpt")
                 print("Model saved in path: %s" % save_path)
+
+    f1.close()
 
 
 if __name__ == "__main__":
