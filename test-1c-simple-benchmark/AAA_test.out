@@ -1,0 +1,102 @@
+nohup: ignoring input
+WARNING:tensorflow:From /home/urops/andrewg/capsule-b/test-1c-simple-benchmark/mycapsnet.py:150: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See tf.nn.softmax_cross_entropy_with_logits_v2.
+
+WARNING:tensorflow:From /home/urops/andrewg/capsule-b/test-1c-simple-benchmark/mycapsnet.py:151: calling softmax (from tensorflow.python.ops.nn_ops) with dim is deprecated and will be removed in a future version.
+Instructions for updating:
+dim is deprecated, use axis instead
+2018-04-14 04:55:33.596416: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-04-14 04:55:34.263582: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1105] Found device 0 with properties: 
+name: GeForce GTX 1080 major: 6 minor: 1 memoryClockRate(GHz): 1.7335
+pciBusID: 0000:88:00.0
+totalMemory: 7.92GiB freeMemory: 7.80GiB
+2018-04-14 04:55:34.263655: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:88:00.0, compute capability: 6.1)
+2018-04-14 04:56:41.713424: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.726899: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.783697: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.826879: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.885824: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.886573: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.965152: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:41.992612: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.031882: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.078288: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.125573: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.176175: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.214569: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.257851: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.308782: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.358670: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.403085: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.434970: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.468059: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.499625: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.555162: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.593810: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.642686: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.687778: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.720160: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.756983: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.805049: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.850044: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.886831: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.920340: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+2018-04-14 04:56:42.939091: W tensorflow/core/framework/op_kernel.cc:1198] Not found: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+Traceback (most recent call last):
+  File "test.py", line 191, in <module>
+    tf.app.run()
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/platform/app.py", line 124, in run
+    _sys.exit(main(argv))
+  File "test.py", line 92, in main
+    saver.restore(sess, "/home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt")
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 1686, in restore
+    {self.saver_def.filename_tensor_name: save_path})
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1128, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1344, in _do_run
+    options, run_metadata)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1363, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.NotFoundError: Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+	 [[Node: save/RestoreV2_30 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2_30/tensor_names, save/RestoreV2_30/shape_and_slices)]]
+	 [[Node: save/RestoreV2_16/_189 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_126_save/RestoreV2_16", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+
+Caused by op u'save/RestoreV2_30', defined at:
+  File "test.py", line 191, in <module>
+    tf.app.run()
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/platform/app.py", line 124, in run
+    _sys.exit(main(argv))
+  File "test.py", line 80, in main
+    saver = tf.train.Saver()
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 1239, in __init__
+    self.build()
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 1248, in build
+    self._build(self._filename, build_save=True, build_restore=True)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 1284, in _build
+    build_save=build_save, build_restore=build_restore)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 765, in _build_internal
+    restore_sequentially, reshape)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 428, in _AddRestoreOps
+    tensors = self.restore_op(filename_tensor, saveable, preferred_shard)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/training/saver.py", line 268, in restore_op
+    [spec.tensor.dtype])[0])
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/ops/gen_io_ops.py", line 1031, in restore_v2
+    shape_and_slices=shape_and_slices, dtypes=dtypes, name=name)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/framework/ops.py", line 3160, in create_op
+    op_def=op_def)
+  File "/home/maksym/tf/local/lib/python2.7/site-packages/tensorflow/python/framework/ops.py", line 1625, in __init__
+    self._traceback = self._graph._extract_stack()  # pylint: disable=protected-access
+
+NotFoundError (see above for traceback): Unsuccessful TensorSliceReader constructor: Failed to find any matching files for /home/urops/andrewg/capsule-b/test-1c-benchmarks/saved/model421009.ckpt
+	 [[Node: save/RestoreV2_30 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/device:CPU:0"](_arg_save/Const_0_0, save/RestoreV2_30/tensor_names, save/RestoreV2_30/shape_and_slices)]]
+	 [[Node: save/RestoreV2_16/_189 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/device:GPU:0", send_device="/job:localhost/replica:0/task:0/device:CPU:0", send_device_incarnation=1, tensor_name="edge_126_save/RestoreV2_16", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:0"]()]]
+

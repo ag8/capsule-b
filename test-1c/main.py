@@ -98,7 +98,7 @@ def main(_):
 
 
     # For output data
-    f1 = open('out.csv', 'w+')
+    f1 = open('out.csv', 'w+', 0)
 
 
     with tf.Session() as sess:

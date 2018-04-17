@@ -80,7 +80,7 @@ def main(_):
     saver = tf.train.Saver()
 
     # For output data
-    f1 = open('out.csv', 'w+')
+    f1 = open('out.csv', 'w+', 0)
 
     sess = tf.Session()
     coord = tf.train.Coordinator()
